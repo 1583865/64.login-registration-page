@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录注册页面</title>
+	<link rel="stylesheet" type="text/css" href="./css/demo.css">
+	
+</head>
+<body>
+<!-- .container>.panel>.content>.switch+form -->
+	<div class="container">
+		<img src="./img/bg.jpg">
+		<div class="panel">
+			<div class="content login">
+				<div class="switch">
+					<span id="login" class="active">Login</span>
+					<span>/</span>
+					<span id="signup">Sign Up</span>
+				</div>
+				<form action="">
+					<div id="email" class="input" placeholder='email'><input type="text"></div>
+					<div class="input" placeholder='username'><input type="text"></div>
+					<div class="input" placeholder='password'><input type="password"></div>
+					<div id="repeat" class="input" placeholder='Repeat'><input type="password"></div>
+					<span>Forget?</span>
+					<button>LOGIN</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="./js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		$('#login').click(function(){
+			$('.switch span').removeClass('active');
+			$(this).addClass('active');
+
+			$(this).parents('.content').removeClass('signup');
+			$(this).parents('.content').addClass('login');
+			$('form button').text('LOGIN');
+
+		})
+
+		$('#signup').click(function(){
+			$('.switch span').removeClass('active');
+			$(this).addClass('active');
+
+			$(this).parents('.content').removeClass('login');
+			$(this).parents('.content').addClass('signup');
+
+			$('form button').text('SIGNUP');
+		})
+
+
+		$('.input input').on('focus',function(){
+			$(this).parent().addClass('focus');
+		})
+
+		$('.input input').on('blur',function(){
+			if($(this).val() === '')
+			$(this).parent().removeClass('focus');
+		})
+
+
+	</script>
+</body>
+</html>
